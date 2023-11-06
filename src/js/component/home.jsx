@@ -1,26 +1,48 @@
 import React from "react";
+import Proptypes from 'prop-types'
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+
 
 //create your first component
-const Home = () => {
+const Secoundcounter = (props) => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container ">
+			<div className="row bg-dark text-white text-center ">
+				<div className="col d-flex align-items-center justify-content-center">
+					<i className="far fa-clock"></i>
+				</div>
+				<div className="col d-flex align-items-center justify-content-center">
+					<h1 className="">{Math.floor((props.seconds) / 36000)}</h1>
+				</div>
+				<div className="col d-flex align-items-center justify-content-center">
+					<h1 className="">{Math.floor((props.seconds) / 3600) % 10}</h1>
+				</div>
+				<div className="col-1 d-flex align-items-center justify-content-center">:</div>
+				<div className="col d-flex align-items-center justify-content-center">
+					<h1 className="">{Math.floor(((props.seconds) / 600) % 6)}</h1>
+				</div>
+				<div className="col d-flex align-items-center justify-content-center">
+					<h1 className="">{Math.floor((props.seconds) / 60) % 10}</h1>
+				</div>
+				<div className="col-1 d-flex align-items-center justify-content-center">:</div>
+				<div className="col d-flex align-items-center justify-content-center">
+					<h1 className="" MaxLength="1" >{Math.floor(((props.seconds) / 10) % 6)}</h1>
+				</div>
+				<div className="col d-flex align-items-center justify-content-center">
+					<h1 className="">{Math.floor((props.seconds) % 10)}</h1>
+				</div>
+
+
+			</div>
 		</div>
+
+
 	);
 };
 
-export default Home;
+Secoundcounter.propTypes = {
+	seconds: Proptypes.number
+}
+
+
+export default Secoundcounter;
